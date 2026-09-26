@@ -8,7 +8,9 @@ use App\Http\Controllers\Api\Kds\KdsController;
 use App\Http\Controllers\Api\Pos\PosCartController;
 use App\Http\Controllers\Api\Pos\PosCheckoutController;
 use App\Http\Controllers\Api\Pos\PosProductController;
+use App\Http\Controllers\Api\Pos\PosSecurityController;
 use App\Http\Controllers\Api\Purchasing\PurchasingController;
+use App\Http\Controllers\Api\Report\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/auth/login', [AuthController::class, 'login']);
@@ -27,6 +29,8 @@ Route::prefix('pos')->group(function () {
     Route::get('/products', [PosProductController::class, 'index']);
     Route::post('/calculate-cart', [PosCartController::class, 'calculate']);
     Route::post('/checkout', [PosCheckoutController::class, 'checkout']);
+    Route::post('/void-order', [PosSecurityController::class, 'voidOrder'])->name('pos.void-order');
+    Route::post('/open-drawer', [PosSecurityController::class, 'openDrawer'])->name('pos.open-drawer');
 });
 
 Route::prefix('kds')->group(function () {
@@ -51,4 +55,8 @@ Route::prefix('purchasing')->group(function () {
 
 Route::prefix('consignment')->group(function () {
     Route::post('/settlements', [ConsignmentController::class, 'settlement'])->name('consignment.settlements');
+});
+
+Route::prefix('reports')->group(function () {
+    Route::get('/daily-pnl', [ReportController::class, 'dailyPnl'])->name('reports.daily-pnl');
 });
