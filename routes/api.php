@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\Pos\PosSecurityController;
 use App\Http\Controllers\Api\Purchasing\PurchasingController;
 use App\Http\Controllers\Api\Report\ReportController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\BranchController;
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 
