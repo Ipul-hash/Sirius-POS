@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\CashShift;
 use App\Models\PettyCashExpense;
 use Carbon\Carbon;
-use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

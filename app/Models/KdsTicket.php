@@ -48,13 +48,35 @@ class KdsTicket extends Model
         return $query->whereIn('status', ['queued', 'preparing', 'ready']);
     }
 
+    public function scopeQueued(Builder $query): Builder
+    {
+        return $query->where('status', 'queued');
+    }
+
+    public function scopePreparing(Builder $query): Builder
+    {
+        return $query->where('status', 'preparing');
+    }
+
+    public function scopeReady(Builder $query): Builder
+    {
+        return $query->where('status', 'ready');
+    }
+
+    public function scopeCollected(Builder $query): Builder
+    {
+        return $query->where('status', 'collected');
+    }
+
     public function markAsPreparing(?int $baristaId = null): void
     {
         $this->update([
             'status' => 'preparing',
-            'started_at' => now(),
+            'started_at' => $this->started_at ?? now(),
             'barista_id' => $baristaId ?? $this->barista_id,
         ]);
+
+        $this->items()->where('status', 'queued')->update(['status' => 'in_progress']);
     }
 
     public function markAsReady(): void
@@ -63,6 +85,8 @@ class KdsTicket extends Model
             'status' => 'ready',
             'ready_at' => now(),
         ]);
+
+        $this->items()->where('status', '!=', 'done')->update(['status' => 'done']);
     }
 
     public function markAsCollected(): void
@@ -71,5 +95,16 @@ class KdsTicket extends Model
             'status' => 'collected',
             'collected_at' => now(),
         ]);
+
+        $this->items()->where('status', '!=', 'done')->update(['status' => 'done']);
+    }
+
+    public function markAsQueued(): void
+    {
+        $this->update([
+            'status' => 'queued',
+        ]);
+
+        $this->items()->update(['status' => 'queued']);
     }
 }
