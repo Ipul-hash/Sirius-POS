@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\SupplierController;
 use App\Http\Controllers\Api\RecipeBomController;
 use App\Http\Controllers\Api\ProductPriceTierController;
+use App\Http\Controllers\Api\PromotionController;
 
 
 Route::post('/auth/login', [AuthController::class, 'login']);
@@ -92,4 +93,7 @@ Route::apiResource('recipe-boms', RecipeBomController::class);
 
     //##Product Price Tier Routes##
 Route::apiResource('product-price-tiers', ProductPriceTierController::class);
+
+    //##Promotion Routes##
+Route::apiResource('promotions', PromotionController::class);
 });
