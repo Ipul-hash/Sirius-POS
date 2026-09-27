@@ -79,4 +79,7 @@ Route::apiResource('products', ProductController::class);
 
     //##Unit Routes##
 Route::apiResource('units', UnitController::class);
+Route::post('units/{unit}/conversions', [UnitController::class, 'storeConversion']);
+Route::put('units/{unit}/conversions/{conversion}', [UnitController::class, 'updateConversion']);
+Route::delete('units/{unit}/conversions/{conversion}', [UnitController::class, 'destroyConversion']);
 });
