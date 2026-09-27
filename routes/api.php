@@ -17,6 +17,8 @@ use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\UnitController;
+use App\Http\Controllers\Api\SupplierController;
+
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 
@@ -79,4 +81,7 @@ Route::apiResource('products', ProductController::class);
 
     //##Unit Routes##
 Route::apiResource('units', UnitController::class);
+
+    //##Supplier Routes##
+Route::apiResource('suppliers', SupplierController::class);
 });
