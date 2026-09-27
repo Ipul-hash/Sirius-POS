@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\Purchasing\PurchasingController;
 use App\Http\Controllers\Api\Report\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BranchController;
+use App\Http\Controllers\Api\LocationController;
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 
@@ -60,4 +61,10 @@ Route::prefix('consignment')->group(function () {
 
 Route::prefix('reports')->group(function () {
     Route::get('/daily-pnl', [ReportController::class, 'dailyPnl'])->name('reports.daily-pnl');
+
+    //##Branch Routes##
+Route::apiResource('branches', BranchController::class);
+
+    //##Location Routes##
+Route::apiResource('locations', LocationController::class);
 });
