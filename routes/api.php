@@ -70,34 +70,25 @@ Route::prefix('consignment')->group(function () {
 Route::prefix('reports')->group(function () {
     Route::get('/daily-pnl', [ReportController::class, 'dailyPnl'])->name('reports.daily-pnl');
 
-    //##Branch Routes##
 Route::apiResource('branches', BranchController::class);
 
-    //##Location Routes##
 Route::apiResource('locations', LocationController::class);
 
-    //##Category Routes##
 Route::apiResource('categories', CategoryController::class);
 
-    //##Product Routes##
 Route::apiResource('products', ProductController::class);
 
-    //##Unit & Conversion Routes##
 Route::apiResource('units', UnitController::class);
 Route::post('units/{unit}/conversions', [UnitController::class, 'storeConversion']);
 Route::put('units/{unit}/conversions/{conversion}', [UnitController::class, 'updateConversion']);
 Route::delete('units/{unit}/conversions/{conversion}', [UnitController::class, 'destroyConversion']);
 
-    //##Supplier Routes##
 Route::apiResource('suppliers', SupplierController::class);
 
-    //##Recipe BOM Routes##
 Route::apiResource('recipe-boms', RecipeBomController::class);
 
-    //##Product Price Tier Routes##
 Route::apiResource('product-price-tiers', ProductPriceTierController::class);
 
-    //##Promotion Routes##
 Route::apiResource('promotions', PromotionController::class);
 Route::post('units/{unit}/conversions', [UnitController::class, 'storeConversion']);
 Route::put('units/{unit}/conversions/{conversion}', [UnitController::class, 'updateConversion']);
