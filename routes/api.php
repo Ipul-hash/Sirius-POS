@@ -82,8 +82,11 @@ Route::apiResource('categories', CategoryController::class);
     //##Product Routes##
 Route::apiResource('products', ProductController::class);
 
-    //##Unit Routes##
+    //##Unit & Conversion Routes##
 Route::apiResource('units', UnitController::class);
+Route::post('units/{unit}/conversions', [UnitController::class, 'storeConversion']);
+Route::put('units/{unit}/conversions/{conversion}', [UnitController::class, 'updateConversion']);
+Route::delete('units/{unit}/conversions/{conversion}', [UnitController::class, 'destroyConversion']);
 
     //##Supplier Routes##
 Route::apiResource('suppliers', SupplierController::class);
