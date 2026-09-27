@@ -96,4 +96,7 @@ Route::apiResource('product-price-tiers', ProductPriceTierController::class);
 
     //##Promotion Routes##
 Route::apiResource('promotions', PromotionController::class);
+Route::post('units/{unit}/conversions', [UnitController::class, 'storeConversion']);
+Route::put('units/{unit}/conversions/{conversion}', [UnitController::class, 'updateConversion']);
+Route::delete('units/{unit}/conversions/{conversion}', [UnitController::class, 'destroyConversion']);
 });
