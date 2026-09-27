@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\Report\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BranchController;
 use App\Http\Controllers\Api\LocationController;
+use App\Http\Controllers\Api\CategoryController;
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 
@@ -67,4 +68,7 @@ Route::apiResource('branches', BranchController::class);
 
     //##Location Routes##
 Route::apiResource('locations', LocationController::class);
+
+    //##Category Routes##
+Route::apiResource('categories', CategoryController::class);
 });
