@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\SupplierController;
+use App\Http\Controllers\Api\RecipeBomController;
 
 
 Route::post('/auth/login', [AuthController::class, 'login']);
@@ -84,4 +85,7 @@ Route::apiResource('units', UnitController::class);
 
     //##Supplier Routes##
 Route::apiResource('suppliers', SupplierController::class);
+
+    //##Recipe BOM Routes##
+Route::apiResource('recipe-boms', RecipeBomController::class);
 });
