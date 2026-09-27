@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BranchController;
 use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\ProductController;
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 
@@ -71,4 +72,7 @@ Route::apiResource('locations', LocationController::class);
 
     //##Category Routes##
 Route::apiResource('categories', CategoryController::class);
+
+    //##Product Routes##
+Route::apiResource('products', ProductController::class);
 });
