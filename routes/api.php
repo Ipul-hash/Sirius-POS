@@ -19,7 +19,7 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\SupplierController;
 use App\Http\Controllers\Api\RecipeBomController;
-use App\Http\Controllers\Api\ProductPriceTierController
+use App\Http\Controllers\Api\ProductPriceTierController;
 
 
 Route::post('/auth/login', [AuthController::class, 'login']);
